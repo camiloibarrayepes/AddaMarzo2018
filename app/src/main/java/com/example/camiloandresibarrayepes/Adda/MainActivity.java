@@ -163,7 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     locationManager.requestLocationUpdates(
-                            LocationManager.GPS_PROVIDER, 2 * 20 * 100, 10, locationListenerGPS);
+                            //MinTime Changed
+                            LocationManager.GPS_PROVIDER, 500, 10, locationListenerGPS);
 
                     PostResponseAsyncTask task = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
                         @Override
@@ -174,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), Denuncia_gracias.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
                                 startActivity(intent);
                                 Toast.makeText(getApplicationContext(),"ENVIADO CON EXITO", Toast.LENGTH_SHORT).show();
+                                finish();
 
                             /*    try {
                                     enviar();

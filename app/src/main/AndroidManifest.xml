@@ -47,7 +47,8 @@
         <activity android:name="com.example.camiloandresibarrayepes.Adda.llamadas" />
         <activity android:name="com.example.camiloandresibarrayepes.Adda.Mas_info" />
         <activity android:name="com.example.camiloandresibarrayepes.Adda.registro_gracias" />
-        <activity android:name="com.example.camiloandresibarrayepes.Adda.usar_adda"></activity>
+        <activity android:name="com.example.camiloandresibarrayepes.Adda.usar_adda" />
+        <activity android:name="com.example.camiloandresibarrayepes.Adda.Slider"></activity>
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ public class Mas_info extends AppCompatActivity {
 
     public void usar_adda(View view) {
 
-        Intent intent = new Intent(getApplicationContext(), usar_adda.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
+        Intent intent = new Intent(getApplicationContext(), Slider.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
         startActivity(intent);
     }
 }
