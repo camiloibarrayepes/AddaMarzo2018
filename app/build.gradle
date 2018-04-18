@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "practise.mysql_php_json"
+        applicationId 'com.adda.camiloandresibarrayepes.adda'
         applicationId "com.example.camiloandresibarrayepes.pruebafoto3"
         minSdkVersion 21
         targetSdkVersion 26
@@ -16,6 +16,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 
@@ -31,4 +33,5 @@ dependencies {
     implementation files('libs/PhotoUtil.jar')
     implementation files('libs/GenAsync.jar')
     compile 'com.mcxiaoke.volley:library:1.0.18'
+    compile 'com.github.Hitomis:CircleMenu:v1.0.2'
 }

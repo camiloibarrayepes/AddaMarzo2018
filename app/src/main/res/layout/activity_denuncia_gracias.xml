@@ -57,7 +57,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/imageView7"
             android:layout_marginTop="49dp"
-            android:text="Tu denuncia ha sido enviada, gracias por registrar esta eventualidad, una entidad se pondrá en contacto con tigo para solicitar ayuda adicional..."
+            android:text="Tu denuncia ha sido enviada, gracias por registrar esta eventualidad, una entidad se pondrá en contacto contigo para solicitar ayuda adicional..."
             android:textSize="15dp"
             tools:layout_editor_absoluteX="25dp"
             tools:layout_editor_absoluteY="350dp" />

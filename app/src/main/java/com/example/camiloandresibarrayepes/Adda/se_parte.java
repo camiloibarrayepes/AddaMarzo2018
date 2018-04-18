@@ -3,7 +3,10 @@ package com.example.camiloandresibarrayepes.Adda;
         import android.app.ProgressDialog;
         import android.content.Intent;
         import android.os.Bundle;
+        import android.os.Debug;
         import android.support.v7.app.AppCompatActivity;
+        import android.util.Log;
+        import android.util.Patterns;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
@@ -19,8 +22,11 @@ package com.example.camiloandresibarrayepes.Adda;
         import com.android.volley.toolbox.Volley;
         import com.example.camiloandresibarrayepes.pruebafoto3.R;
 
+        import java.io.Console;
         import java.util.HashMap;
         import java.util.Map;
+        import java.util.regex.Matcher;
+        import java.util.regex.Pattern;
 
 
 public class se_parte extends AppCompatActivity {
@@ -49,6 +55,7 @@ public class se_parte extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
 
+
         insert.setOnClickListener(new View.OnClickListener() {
 
 
@@ -56,14 +63,24 @@ public class se_parte extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(lastname.getText().toString().isEmpty())
+
+
+
+                if(firstname.getText().toString().isEmpty()) {
+                    Toast.makeText(se_parte.this, "Escribe tu nombre", Toast.LENGTH_SHORT).show();
+                }
+                else if(lastname.getText().toString().isEmpty())
                 {
                     Toast.makeText(se_parte.this, "Escribe un telefono", Toast.LENGTH_SHORT).show();
-                }else if(firstname.getText().toString().isEmpty()) {
-                    Toast.makeText(se_parte.this, "Escribe tu nombre", Toast.LENGTH_SHORT).show();
-                }else if(email.getText().toString().isEmpty()) {
+                }
+                    else if(email.getText().toString().isEmpty()) {
                     Toast.makeText(se_parte.this, "Escribe un Email", Toast.LENGTH_SHORT).show();
-                }else{
+                }else if(!validateEmail(email.getText().toString())) {
+                    email.setError("Invalid Email");
+                    email.requestFocus();
+                    Toast.makeText(se_parte.this, "Email no valido", Toast.LENGTH_SHORT).show();
+                }
+                else{
 
                     progressDialog.setMessage("Registrando...");
                     progressDialog.show();
@@ -72,6 +89,7 @@ public class se_parte extends AppCompatActivity {
                         public void onResponse(String response) {
 
                             System.out.println(response.toString());
+                            Log.d("LOGCAMILO", response.toString());
                             Toast.makeText(se_parte.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                             firstname.setText("");
@@ -79,6 +97,7 @@ public class se_parte extends AppCompatActivity {
                             email.setText("");
                             Intent intent = new Intent(getApplicationContext(), registro_gracias.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
                             startActivity(intent);
+                            finish();
 
                         }
 
@@ -88,6 +107,9 @@ public class se_parte extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
 
                         }
+
+
+
                     }) {
 
                         @Override
@@ -109,11 +131,23 @@ public class se_parte extends AppCompatActivity {
 
 
 
+
+
             }
 
         });
 
 
+    }
+
+    protected boolean validateEmail(String email) {
+        String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
     }
 
 }

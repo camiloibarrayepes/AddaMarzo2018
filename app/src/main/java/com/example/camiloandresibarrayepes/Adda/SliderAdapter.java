@@ -43,7 +43,7 @@ public class SliderAdapter extends PagerAdapter {
             "Realiza tu denuncia ambiental con la primera opción que aparece en el menú principal",
             "Captura una foto con tu dispositivo, es importante que captures el momento indicado de la denuncia",
             "Espera unos segundos, puede que demore el envío o que no capture la ubicación al primer intento",
-            "Tu denuncia ha sido enviada con éxito, una entidad se pondrá en contacto con tigo de ser necesario"
+            "Tu denuncia ha sido enviada con éxito, una entidad se pondrá en contacto contigo de ser necesario"
     };
 
     @Override

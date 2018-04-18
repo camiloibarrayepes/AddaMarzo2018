@@ -7,12 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.StrictMode;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,8 @@ import android.widget.Toast;
 import android.app.ProgressDialog;
 
 import com.example.camiloandresibarrayepes.pruebafoto3.R;
+import com.hitomi.cmlibrary.CircleMenu;
+import com.hitomi.cmlibrary.OnMenuSelectedListener;
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageBase64;
@@ -68,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
     double longitudeNetwork, latitudeNetwork;
     AlertDialog alert = null;
 
+    FloatingActionButton fab;
+
+    String arrayName[] = {"Información",
+            "Enviar denuncia"
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         nombre = (EditText)findViewById(R.id.nombre);
         telefono = (EditText)findViewById(R.id.telefono);
         comentario = (EditText)findViewById(R.id.comentario);
-
 
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder(); StrictMode.setVmPolicy(builder.build());
@@ -92,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
         ivCamera = (ImageView) findViewById(R.id.ivCamera);
         ivGallery = (ImageView) findViewById(R.id.ivGallery);
         ivImage = (ImageView) findViewById(R.id.ivImage);
-        ivUpload = (Button) findViewById(R.id.ivUpload);
+        //ivUpload = (Button) findViewById(R.id.ivUpload);
+
+
+        fab = (FloatingActionButton)findViewById(R.id.fab);
+
 
         ivCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ivUpload.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -125,9 +139,35 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(telefono.getText().toString().isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Escribe un telefono", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Escribe un teléfono", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if(comentario.getText().toString().trim().length()<10) {
+                    Toast.makeText(MainActivity.this, "Mínimo 6 carácteres en observaciones", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if((telefono.getText().toString().length()<5)) {
+                    Toast.makeText(MainActivity.this, "Teléfono demasiado corto", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                String cadenaDondeBuscar = telefono.getText().toString();
+                String loQueQuieroBuscar = "00000";
+                String[] palabras = loQueQuieroBuscar.split("\\s+");
+                for (String palabra : palabras) {
+                    if ((cadenaDondeBuscar.contains(palabra))&&(cadenaDondeBuscar.length()<=5)) {
+                        Toast.makeText(MainActivity.this, "Teléfono inválido", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+
+
+
+
 
                 if(comentario.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "Escribe observaciones", Toast.LENGTH_SHORT).show();

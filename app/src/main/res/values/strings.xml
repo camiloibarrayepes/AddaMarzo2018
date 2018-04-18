@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PruebaFoto3</string>
+    <string name="app_name">Adda</string>
+    <string name="title_activity_boton_flot">BotonFlot</string>
 </resources>

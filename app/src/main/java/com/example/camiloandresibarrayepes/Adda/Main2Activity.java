@@ -8,7 +8,10 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.camiloandresibarrayepes.pruebafoto3.R;
@@ -27,6 +30,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        TextView textView = (TextView) findViewById(R.id.cerca);
+        SpannableString mitextoU = new SpannableString("Acerca de Adda");
+        mitextoU.setSpan(new UnderlineSpan(), 0, mitextoU.length(), 0);
+        textView.setText(mitextoU);
 
         //Permiso CALL
 

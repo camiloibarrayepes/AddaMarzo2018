@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="@drawable/fondo_adda_3"
     android:weightSum="10"
     tools:context="com.example.camiloandresibarrayepes.Adda.llamadas">
 
@@ -23,9 +23,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="48dp"
             android:text="Llamadas Emergencia"
             android:textColor="#ffffff"
+            android:textStyle="bold"
             android:textSize="25sp" />
 
 
@@ -117,7 +118,7 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="Fiscalia Ambiental"
+                    android:text="Fiscalía Ambiental"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="15sp"
@@ -240,11 +241,11 @@
                 <ImageView
                     android:src="@drawable/proteccionamb"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
                 <TextView
-                    android:text="Policia Nacional prot. ambiental"
+                    android:text="Policía Nacional prot. ambiental"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="15sp"
@@ -284,14 +285,14 @@
                     android:src="@drawable/arbol"
 
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp" />
+                    android:layout_width="40sp"
+                    android:layout_height="40sp" />
 
                 <TextView
-                    android:text="Sec distrit   al de ambiente"
+                    android:text="Secretaría distrital de ambiente"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

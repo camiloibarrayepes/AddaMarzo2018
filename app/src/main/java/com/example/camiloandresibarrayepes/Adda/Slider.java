@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -64,6 +65,7 @@ public class Slider extends AppCompatActivity {
 
 
 
+
     }
 
     public void addDotsIndicator(int position){
@@ -105,7 +107,7 @@ public class Slider extends AppCompatActivity {
                 mNextBtn.setText("Siguiente");
                 mBackBtn.setText("");
 
-            }else if(i == mDots.length - 1){
+            }else if(i == mDots.length - 1) {
 
                 mNextBtn.setEnabled(true);
                 mBackBtn.setEnabled(true);
@@ -114,17 +116,19 @@ public class Slider extends AppCompatActivity {
                 mNextBtn.setText("Finalizar");
                 mBackBtn.setText("Atras");
 
+
                 mNextBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), Main2Activity.class)/*.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)*/;
                         startActivity(intent);
+
                     }
                 });
 
             }else{
                 mNextBtn.setEnabled(true);
-                mBackBtn.setEnabled(false);
+                mBackBtn.setEnabled(true);
                 mBackBtn.setVisibility(View.VISIBLE);
 
                 mNextBtn.setText("Siguiente");
